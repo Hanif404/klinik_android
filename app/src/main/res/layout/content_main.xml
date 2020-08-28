@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/lay_profile"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/item_space"
+        android:background="@color/gray200">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/no_profile"
+            android:translationZ="0.1dp"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="1dp"
+            android:layout_marginRight="@dimen/item_space"/>
+
+        <LinearLayout
+            android:id="@+id/field_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/img_profile"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/txt_antrian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No. Antrian : -"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"/>
+
+            <TextView
+                android:id="@+id/txt_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Pengguna"
+                style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+            <TextView
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="dummy_data@gmail.com"
+                style="@style/TextAppearance.MaterialComponents.Caption"/>
+
+            <Button
+                android:id="@+id/btn_antrian"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:text="Ambil Antrian"
+                android:padding="@dimen/item_space"
+                android:layout_below="@id/txt_password"
+                android:backgroundTint="@color/colorPrimaryDark"
+                />
+
+            <Button
+                android:id="@+id/btn_open_klinik"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:text="Buka Klinik"
+                android:padding="@dimen/item_space"
+                android:visibility="gone"
+                android:backgroundTint="@color/colorPrimaryDark"
+                />
+
+            <Button
+                android:id="@+id/btn_close_klinik"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:text="Tutup Klinik"
+                android:padding="@dimen/item_space"
+                android:visibility="gone"
+                android:backgroundTint="@color/red500"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lay_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/item_space"
+        android:layout_margin="@dimen/item_space"
+        android:background="@drawable/box_content_info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_profile">
+
+        <ImageView
+            android:id="@+id/img_info"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:src="@drawable/ic_medical_3" />
+
+        <LinearLayout
+            android:id="@+id/field_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/item_space"
+            android:layout_toRightOf="@+id/img_info"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_info_title"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:text="Jadwal Pemeriksaan" />
+
+            <TextView
+                android:id="@+id/txt_info_content"
+                style="@style/TextAppearance.MaterialComponents.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:text="Tidak ada jadwal" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_info">
+
+        <RelativeLayout
+            android:id="@+id/lay_periksa"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:elevation="2dp"
+            android:padding="@dimen/item_space"
+            android:layout_margin="@dimen/item_space"
+            android:background="@drawable/box_content_menu">
+
+            <ImageView
+                android:id="@+id/img_menu_1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_medical_1" />
+
+            <TextView
+                android:id="@+id/txt_menu_1"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Registrasi"
+                android:layout_below="@id/img_menu_1"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lay_konsultasi"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:elevation="2dp"
+            android:padding="@dimen/item_space"
+            android:layout_margin="@dimen/item_space"
+            android:background="@drawable/box_content_menu">
+
+            <ImageView
+                android:id="@+id/img_menu_2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_medical_2" />
+
+            <TextView
+                android:id="@+id/txt_menu_2"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Konsultasi"
+                android:layout_below="@id/img_menu_2"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/lay_konsultasi_bidan"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:elevation="2dp"
+        android:padding="@dimen/item_space"
+        android:layout_margin="@dimen/item_space"
+        android:visibility="gone"
+        android:background="@drawable/box_content_menu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_info">
+
+        <ImageView
+            android:id="@+id/img_menu_3"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_medical_2" />
+
+        <TextView
+            android:id="@+id/txt_menu_3"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:text="Konsultasi"
+            android:layout_toRightOf="@+id/img_menu_3"/>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

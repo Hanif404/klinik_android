@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:cardCornerRadius="4dp"
+    android:background="@android:color/white"
+    android:layout_marginTop="@dimen/item_space"
+    android:layout_marginLeft="@dimen/item_space"
+    android:layout_marginRight="@dimen/item_space">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/list_layout_diklat"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:padding="@dimen/item_space"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+            <TextView
+                android:id="@+id/txt_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                style="@style/TextAppearance.MaterialComponents.Caption"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_view"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:text="Detail Data"
+                android:padding="@dimen/item_space"
+                android:backgroundTint="@color/gray200"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="@dimen/item_space"
+                />
+
+            <Button
+                android:id="@+id/btn_rekam_medis"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:text="Rekam Medis"
+                android:padding="@dimen/item_space"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="@dimen/item_space"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_konsultasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="Konsultasi"
+            android:padding="@dimen/item_space"
+            android:layout_below="@id/txt_password"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:layout_marginLeft="@dimen/item_space"
+            android:layout_marginBottom="@dimen/item_space"
+            android:layout_marginRight="@dimen/item_space"/>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:cardCornerRadius="4dp"
+    android:background="@android:color/white"
+    android:layout_marginTop="@dimen/item_space"
+    android:layout_marginLeft="@dimen/item_space"
+    android:layout_marginRight="@dimen/item_space">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/list_layout_diklat"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:padding="@dimen/item_space"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+            <TextView
+                android:id="@+id/txt_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                style="@style/TextAppearance.MaterialComponents.Caption"/>
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="0"
+            android:stretchColumns="1"
+            android:padding="@dimen/item_space">
+            <TableRow>
+                <TextView
+                    android:text="Kaki Bengkak :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/field_is_kaki_bengkak"
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:textSize="10sp"
+                    android:text="-" />
+
+                <TextView
+                    android:text="Keluhan :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/field_keluhan"
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:textSize="10sp"
+                    android:text="-" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Tekanan Darah :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/field_tekanan_darah"
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:textSize="10sp"
+                    android:text="-" />
+
+                <TextView
+                    android:text="Umr. Kehamilan :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/field_umur_kehamilan"
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:textSize="10sp"
+                    android:text="-" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Berat Badan :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/field_berat_badan"
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:textSize="10sp"
+                    android:text="-" />
+
+                <TextView
+                    android:text="Imunisasi/tablet :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/field_imunisasi"
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:textSize="10sp"
+                    android:text="-" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Letak Janin :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/field_letak_janin"
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:textSize="10sp"
+                    android:text="-" />
+
+                <TextView
+                    android:text="Denyut Janin :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/field_denyut_janin"
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:textSize="10sp"
+                    android:text="-" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Tinggi Fundus :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/field_tinggi_fundus"
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:textSize="10sp"
+                    android:text="-" />
+
+                <TextView
+                    android:text="Nasihat :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/field_nasihat"
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:textSize="10sp"
+                    android:text="-" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_edit"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:text="Edit"
+                android:padding="@dimen/item_space"
+                android:backgroundTint="@color/gray200"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="@dimen/item_space"
+                />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:text="Delete"
+                android:padding="@dimen/item_space"
+                android:backgroundTint="@color/red500"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="@dimen/item_space"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

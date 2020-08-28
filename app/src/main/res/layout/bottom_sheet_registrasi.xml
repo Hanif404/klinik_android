@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_sheet_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/item_space"
+    android:orientation="vertical"
+    app:behavior_hideable="true"
+    android:background="@android:color/white"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail Data"
+            style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_round_close"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="1">
+                <TableRow>
+                    <TextView
+                        android:text="Hamil Ke"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_hamil_ke"
+                        android:layout_column="1"
+                        android:gravity="right"
+                        android:padding="3dip"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Jml Persalinan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_jml_persalinan"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Jml Keguguran"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_jml_keguguran"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Jml anak hidup"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_jml_ank_hidup"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Jml anak mati"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_jml_ank_mati"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Jml anak lahir kurang bulan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_jml_ank_lr_kr_bln"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Jarak Hamil saat ini dengan yang terakhir"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_jrk_hamil_dr_akhir"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Imunisasi TT"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_imunisasi_tt"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Cara persalinan terakhir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_cara_salin_akhir"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Penolong persalinan terakhir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_penolong_salin_akhir"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Hari pertama haid terakhir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_hpht"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Hari taksiran persalinan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_htp"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="KEK"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_is_kek"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Lingkar lengan atas"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_lingkar_lengan_atas"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Tinggi Badan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_tinggi_bd"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Kontrasepsi sebelum hamil"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_kontrasepsi_blm_hamil"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Riwayat penyakit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_rw_penyakit"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:text="Riwayat Alergi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dip" />
+
+                    <TextView
+                        android:id="@+id/field_rw_alergi"
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:gravity="right"
+                        android:text="-" />
+                </TableRow>
+
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btn_edit"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="Edit"
+                    android:padding="@dimen/item_space"
+                    android:layout_below="@id/txt_password"
+                    android:backgroundTint="@color/gray200"
+                    android:layout_marginRight="5dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_delete"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:text="Delete"
+                    android:padding="@dimen/item_space"
+                    android:layout_below="@id/txt_password"
+                    android:backgroundTint="@color/red500"
+                    android:layout_marginLeft="5dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

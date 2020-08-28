@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.karungkung.klinik.RegistrasiFormActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/item_space">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_hamil_ke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hamil Ke"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_jml_persalinan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Jumlah persalinan"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_jml_keguguran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Jumlah Keguguran"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_jml_ank_hidup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Jumlah anak hidup"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_jml_ank_mati"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Jumlah anak mati"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_jml_ank_lr_kr_bln"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Jumlah anak lahir kurang bulan"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_jrk_hamil_dr_akhir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Jarak hamil saat ini dgn terakhir"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_imunisasi_tt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Imunisasi TT"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_cara_salin_akhir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cara persalinan terakhir"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_penolong_salin_akhir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Penolong persalinan terakhir"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_hpht"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hari pertama haid terakhir"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_htp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hari taksiran persalinan"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_is_kek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="KEK"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_lingkar_lengan_atas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lingkar lengan atas"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_tinggi_bd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tinggi Badan"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_kontrasepsi_blm_hamil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Konstrasepsi sebelum hamil"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_rw_penyakit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Riwayat penyakit"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_rw_alergi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Riwayat alergi"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_registrasi"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="Submit"
+            android:padding="@dimen/item_space"
+            android:backgroundTint="@color/colorPrimaryDark"
+            />
+    </LinearLayout>
+</ScrollView>

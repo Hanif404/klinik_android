@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Healty mom</string>
+    <!--    <string name="app_name">Testing</string>-->
+    <string name="path_assets">assets/upload/</string>
+    <string name="title_profile_page">Profile</string>
+    <string name="title_profile_form_page">Form Profile</string>
+    <string name="title_periksa">Pemeriksaan</string>
+    <string name="title_registration_page">Registrasi</string>
+    <string name="title_registration_form">Registrasi Form</string>
+    <string name="title_rekam_medis">Rekam Medis</string>
+    <string name="title_rekam_medis_form">Rekam Medis Form</string>
+    <string name="title_forgot_page">Lupa Kata Kunci</string>
+    <string name="title_ganti_password_page">Ganti Kata Kunci</string>
+    <string name="label_barcode">Scan Barcode</string>
+    <string name="label_profile">Profile</string>
+
+    <string name="lbl_set_profile_photo">Set profile image</string>
+    <string name="lbl_take_camera_picture">Take a picture</string>
+    <string name="lbl_choose_from_gallery">Choose from gallery</string>
+    <string name="toast_image_intent_null">Image picker option is missing!</string>
+
+    <string name="message_loading">Data Diproses, silahkan tunggu</string>
+    <string name="message_noupload">Foto profile masih kosong</string>
+    <string name="message_nouser">Akun tidak diketemukan</string>
+    <string name="message_success">Data Tersimpan</string>
+    <string name="message_notif_pemeriksaan">Hari ini jadwal mom untuk periksa</string>
+</resources>

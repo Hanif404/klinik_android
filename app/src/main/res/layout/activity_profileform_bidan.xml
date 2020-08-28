@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.karungkung.klinik.ProfileformbidanActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/item_space">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/no_profile"
+            android:translationZ="0.1dp"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="1dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_nama_lengkap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Lengkap"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            android:layout_below="@+id/img_profile"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alamat Domisili"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            android:layout_below="@+id/txt_email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alamat Email"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            android:layout_below="@+id/txt_nama_lengkap"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="No. Telpon"
+            android:layout_marginTop="@dimen/item_space"
+            app:boxStrokeColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark"
+            android:layout_below="@+id/txt_address"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="Submit"
+            android:padding="@dimen/item_space"
+            android:backgroundTint="@color/colorPrimaryDark"
+            />
+    </LinearLayout>
+
+</ScrollView>
