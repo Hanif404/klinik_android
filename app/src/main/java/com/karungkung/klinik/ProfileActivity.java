@@ -89,7 +89,7 @@ public class ProfileActivity extends AppCompatActivity {
                     requestOptions.skipMemoryCache(true);
                     requestOptions.placeholder(R.drawable.no_profile);
 
-                    String imgUrl = ApiClient.BASE_URL + getString(R.string.path_assets) + profil.get(0).getFileImage();
+                    String imgUrl = sm.getPref("base_url") + getString(R.string.path_assets) + profil.get(0).getFileImage();
                     Glide.with(getApplicationContext()).load(imgUrl).apply(requestOptions).into(fotoProfile);
                 } else {
                     Gson gson = new Gson();
@@ -275,7 +275,7 @@ public class ProfileActivity extends AppCompatActivity {
                     requestOptions.skipMemoryCache(true);
                     requestOptions.placeholder(R.drawable.no_profile);
 
-                    String imgUrl = ApiClient.BASE_URL + getString(R.string.path_assets) + profil.get(0).getFileImage();
+                    String imgUrl = sm.getPref("base_url") + getString(R.string.path_assets) + profil.get(0).getFileImage();
                     Glide.with(getApplicationContext()).load(imgUrl).apply(requestOptions).into(viewFotoProfile);
                 } else {
                     Gson gson = new Gson();

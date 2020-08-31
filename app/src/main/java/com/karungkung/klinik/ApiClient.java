@@ -20,10 +20,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     private static Retrofit retrofit;
-    public static final String BASE_URL = "http://10.0.2.2/Karungkung/klinik_ws/";
+//    public static final String BASE_URL = "http://10.0.2.2/Karungkung/klinik_ws/";
 
     public static Retrofit getClient(Context context, boolean authBearer) {
         SessionManager sm = new SessionManager(context);
+
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -45,7 +46,7 @@ public class ApiClient {
         client.addInterceptor(interceptor);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(sm.getPref("base_url"))
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client.build())
                 .build();

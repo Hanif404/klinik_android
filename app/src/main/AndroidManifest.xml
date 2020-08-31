@@ -11,24 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true">
+        <activity android:name=".SetWebserviceActivity" android:theme="@style/AppThemeNoBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".KonsultasiActivity"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".RekamMedisFormActivity"
             android:label="@string/title_rekam_medis_form"
-            android:parentActivityName=".PeriksaActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PeriksaActivity" />
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".RekamMedisActivity"
             android:label="@string/title_rekam_medis"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".RegistrasiFormActivity"
             android:label="@string/title_registration_form"
@@ -98,11 +98,6 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppThemeNoBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
@@ -127,15 +122,16 @@
         </provider>
 
         <service android:name=".NotificationService" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
     </application>
 
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 

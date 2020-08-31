@@ -1,17 +1,25 @@
 package com.karungkung.klinik;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.datepicker.MaterialCalendar;
+import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -24,6 +32,7 @@ import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,16 +85,28 @@ public class RegistrasiFormActivity extends AppCompatActivity implements Validat
     TextInputLayout caraSalin;
     @BindView(R.id.txt_penolong_salin_akhir)
     @NotEmpty
-    TextInputLayout pernolongSalin;
+    TextInputLayout penolongSalin;
+
     @BindView(R.id.txt_hpht)
     @NotEmpty
     TextInputLayout hpht;
+
     @BindView(R.id.txt_htp)
     @NotEmpty
     TextInputLayout htp;
+
+    @BindView(R.id.filled_exposed_dropdown)
+    @NotEmpty
+    AutoCompleteTextView isKek;
+
+    @BindView(R.id.filled_exposed_dropdown_1)
+    @NotEmpty
+    AutoCompleteTextView imunisasiTTDp;
+
     @BindView(R.id.txt_is_kek)
     @NotEmpty
-    TextInputLayout isKek;
+    TextInputLayout isKektxt;
+
     @BindView(R.id.txt_lingkar_lengan_atas)
     @NotEmpty
     TextInputLayout lingkarLengan;
@@ -104,6 +125,7 @@ public class RegistrasiFormActivity extends AppCompatActivity implements Validat
 
     private Validator validator;
     private int idRegistrasi = 0, idUser = 0;
+    private int selectInput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,6 +143,19 @@ public class RegistrasiFormActivity extends AppCompatActivity implements Validat
         }
 
         prepareData();
+        createDropdown();
+    }
+
+    private void createDropdown(){
+        String[] isKekArr = new String[] {"Tidak", "Ya"};
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(
+                        getApplicationContext(),
+                        R.layout.dropdown_menu_popup_item,
+                        isKekArr);
+        isKek.setAdapter(adapter);
+        imunisasiTTDp.setAdapter(adapter);
     }
 
     private void prepareData(){
@@ -153,18 +188,30 @@ public class RegistrasiFormActivity extends AppCompatActivity implements Validat
                             jmlAnkMati.getEditText().setText(rl.getJmlAnakMati());
                             jmlAnkKurangBln.getEditText().setText(rl.getJmlAnkKurangBulan());
                             jrkHamil.getEditText().setText(rl.getJrkHamil());
-                            imunisasiTT.getEditText().setText(rl.getImunisasiTT());
+
+                            String strImunisasi = "Tidak";
+                            if(rl.getImunisasiTT() == "1"){
+                                strImunisasi = "Ya";
+                            }
+                            imunisasiTT.getEditText().setText(strImunisasi);
                             caraSalin.getEditText().setText(rl.getCaraSalinAkhir());
-                            pernolongSalin.getEditText().setText(rl.getPenolongSalinAkhir());
+                            penolongSalin.getEditText().setText(rl.getPenolongSalinAkhir());
                             hpht.getEditText().setText(rl.getHpht());
                             htp.getEditText().setText(rl.getHtp());
-                            isKek.getEditText().setText(rl.getIsKek());
+
+                            String strKek = "Tidak";
+                            if(rl.getIsKek() == "1"){
+                                strKek = "Ya";
+                            }
+                            isKektxt.getEditText().setText(strKek);
+
                             lingkarLengan.getEditText().setText(rl.getLingkarLenganAtas());
                             tinggiBadan.getEditText().setText(rl.getTinggiBadan());
                             kontrasepsiBlmHamil.getEditText().setText(rl.getKontrasepsi());
                             rwPenyakit.getEditText().setText(rl.getRwPenyakit());
                             rwAlergi.getEditText().setText(rl.getRwAlergi());
                         }
+                        createDropdown();
                     } else {
                         Gson gson = new Gson();
                         TypeAdapter<ResponseDataObj> adapter = gson.getAdapter(ResponseDataObj.class);
@@ -210,12 +257,23 @@ public class RegistrasiFormActivity extends AppCompatActivity implements Validat
         params.put("jml_ank_mati", jmlAnkMati.getEditText().getText().toString());
         params.put("jml_ank_lr_kr_bln", jmlAnkKurangBln.getEditText().getText().toString());
         params.put("jrk_hamil_dr_akhir", jrkHamil.getEditText().getText().toString());
-        params.put("imunisasi_tt", imunisasiTT.getEditText().getText().toString());
+
+        String strImunisasi = "0";
+        if(imunisasiTT.getEditText().getText().toString().equals("Ya")){
+            strImunisasi = "1";
+        }
+        params.put("imunisasi_tt", strImunisasi);
         params.put("cara_salin_akhir", caraSalin.getEditText().getText().toString());
-        params.put("penolong_salin_akhir", pernolongSalin.getEditText().getText().toString());
+        params.put("penolong_salin_akhir", penolongSalin.getEditText().getText().toString());
         params.put("hpht", hpht.getEditText().getText().toString());
         params.put("htp", htp.getEditText().getText().toString());
-        params.put("is_kek", isKek.getEditText().getText().toString());
+
+        String strKek = "0";
+        if(isKektxt.getEditText().getText().toString().equals("Ya")){
+            strKek = "1";
+        }
+        params.put("is_kek", strKek);
+
         params.put("lingkar_lengan_atas", lingkarLengan.getEditText().getText().toString());
         params.put("tinggi_bd", tinggiBadan.getEditText().getText().toString());
         params.put("kontrasepsi_blm_hamil", kontrasepsiBlmHamil.getEditText().getText().toString());
@@ -271,6 +329,49 @@ public class RegistrasiFormActivity extends AppCompatActivity implements Validat
             } else {
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             }
+        }
+    }
+
+    @OnClick(R.id.btn_hpht)
+    public void handleHpht(){
+        DialogFragment newFragment = new DatePickerFragment(hpht);
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    @OnClick(R.id.btn_htp)
+    public void handleHtp(){
+        DialogFragment newFragment = new DatePickerFragment(htp);
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    public static class DatePickerFragment extends DialogFragment
+            implements DatePickerDialog.OnDateSetListener {
+        private TextInputLayout txtDate;
+
+        public DatePickerFragment(TextInputLayout txtDate){
+            this.txtDate = txtDate;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current date as the default date in the picker
+            final Calendar c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
+
+            // Create a new instance of DatePickerDialog and return it
+            return new DatePickerDialog(getActivity(), this, year, month, day);
+        }
+
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            // Do something with the date chosen by the user
+            String bulan = String.valueOf(month);
+            if(month < 10){
+                bulan = "0"+month;
+            }
+            String date = year+"-"+bulan+"-"+day;
+            txtDate.getEditText().setText(date);
         }
     }
 }

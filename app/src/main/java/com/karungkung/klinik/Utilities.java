@@ -27,8 +27,8 @@ public class Utilities {
             public void onClick(View v) {
                 dialog.dismiss();
                 if(backpage){
-                    Intent intent = new Intent(activity, tujuan);
-                    activity.startActivity(intent);
+//                    Intent intent = new Intent(activity, tujuan);
+//                    activity.startActivity(intent);
                     activity.finish();
                 }
             }

@@ -20,6 +20,12 @@ public class SessionManager {
         editor.commit();
     }
 
+    public void setPrefWebservice(String key, String value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences("SessionGuard", Context.MODE_PRIVATE).edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
     public String getPref(String key) {
         SharedPreferences prefs = context.getSharedPreferences("SessionGuard", Context.MODE_PRIVATE);
         String position = prefs.getString(key, "");

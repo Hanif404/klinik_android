@@ -88,9 +88,14 @@ public class RegistrasiAdapter extends RecyclerView.Adapter<RegistrasiAdapter.My
             //Konsultasi
             holder.btnView.setVisibility(View.GONE);
             holder.btnRekamMedis.setVisibility(View.GONE);
-            holder.btnKonsultasi.setVisibility(View.VISIBLE);
-            holder.btnKonsultasi.setText("Chatting");
-            holder.subtitle.setVisibility(View.GONE);
+            if(dt.getIsKonsultasi().equals("1")){
+                holder.btnKonsultasi.setVisibility(View.VISIBLE);
+                holder.btnKonsultasi.setText("Chatting");
+                holder.subtitle.setText("Konsultasi aktif");
+            }else{
+                holder.btnKonsultasi.setVisibility(View.GONE);
+                holder.subtitle.setText("Konsultasi tidak aktif");
+            }
         }else{
             //Registrasi
             String message = "tidak aktif";

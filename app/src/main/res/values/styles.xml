@@ -5,11 +5,18 @@
         <item name="colorPrimary">@color/gray200</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonBarPositiveButtonStyle" tools:targetApi="lollipop">@style/DatePickerButtonStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle" tools:targetApi="lollipop">@style/DatePickerButtonStyle</item>
     </style>
 
     <style name="AppThemeNoBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="DatePickerButtonStyle" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@android:color/transparent</item>
     </style>
 </resources>

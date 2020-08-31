@@ -107,10 +107,15 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
 
                             sm.setPref("token", json.get("token").toString().replaceAll("\"", ""));
                             sm.setPref("user_id", json.get("id").toString().replaceAll("\"", ""));
+                            String isBidan = json.get("is_bidan").toString().replaceAll("\"", "");
 
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
-                            finish();
+                            if(BuildConfig.FLAVOR.equals("user") && isBidan.equals("0")){
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }else{
+                                Toast.makeText(getApplicationContext(), getString(R.string.message_nouser), Toast.LENGTH_SHORT).show();
+                            }
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -144,7 +149,6 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 progress.dismiss();
-                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -57,7 +57,6 @@ public class KonsultasiActivity extends AppCompatActivity {
                 return true;
             }
         });
-        editReadChat();
         prepareList();
     }
 
@@ -152,6 +151,7 @@ public class KonsultasiActivity extends AppCompatActivity {
                             chatView.addMessage(message);
                         }
                     }
+                    editReadChat();
                 } else {
                     Gson gson = new Gson();
                     TypeAdapter<ResponseDataObj> adapter = gson.getAdapter(ResponseDataObj.class);
@@ -190,5 +190,11 @@ public class KonsultasiActivity extends AppCompatActivity {
         } else {
             return super.onKeyDown(keyCode, event);
         }
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        prepareList();
     }
 }

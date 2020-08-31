@@ -128,44 +128,7 @@ public class PeriksaActivity extends AppCompatActivity {
             public void onResponse(Call<Registrasi> call, Response<Registrasi> response) {
                 progress.dismiss();
                 if (response.code() == 200) {
-                    registrasiAdapter = new RegistrasiAdapter(PeriksaActivity.this, response.body().getData(), typeMenu, new RegistrasiAdapter.ClickListener() {
-                        @Override
-                        public void onClickRekammedis(View v, int position) {
-                            Registrasi.RegistrasiList regList = response.body().getData().get(position);
-                            Intent intent = new Intent(PeriksaActivity.this, RekamMedisActivity.class);
-                            intent.putExtra("id", regList.getId());
-                            startActivity(intent);
-                        }
-
-                        @Override
-                        public void onClickDetail(View v, int position) {
-                            Registrasi.RegistrasiList regList = response.body().getData().get(position);
-                            detailDialog(String.valueOf(regList.getId()));
-                        }
-
-                        @Override
-                        public void onClickKonsultasi(View v, int position) {
-                            Registrasi.RegistrasiList regList = response.body().getData().get(position);
-                            if(typeMenu == 1){
-                                //Registrasi
-                                Integer isAktif = 1;
-                                if(regList.getIsKonsultasi().equals("1")){
-                                    isAktif = 0;
-                                }
-                                isKonsultasi(String.valueOf(regList.getId()), String.valueOf(isAktif));
-                            }else if(typeMenu == 2){
-                                //Konsultasi
-                                Intent intent = new Intent(PeriksaActivity.this, KonsultasiActivity.class);
-                                intent.putExtra("id", regList.getId());
-                                startActivity(intent);
-                            }
-                        }
-                    });
-
-                    RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-                    rvRegistrasi.setLayoutManager(mLayoutManager);
-                    rvRegistrasi.setItemAnimator(new DefaultItemAnimator());
-                    rvRegistrasi.setAdapter(registrasiAdapter);
+                    getAdapter(response.body().getData());
                 } else {
                     Gson gson = new Gson();
                     TypeAdapter<ResponseDataObj> adapter = gson.getAdapter(ResponseDataObj.class);
@@ -228,6 +191,7 @@ public class PeriksaActivity extends AppCompatActivity {
     }
 
     private void loadDataDetail(View view, BottomSheetDialog dialog, String id){
+        Log.i("KLINIK", idUser+"");
         final ProgressDialog progress = new ProgressDialog(PeriksaActivity.this);
         progress.setTitle("Loading");
         progress.setMessage(getString(R.string.message_loading));
@@ -270,7 +234,11 @@ public class PeriksaActivity extends AppCompatActivity {
                     viewTxt7.setText(registrasi.get(0).getJrkHamil());
 
                     TextView viewTxt8 = (TextView) view.findViewById(R.id.field_imunisasi_tt);
-                    viewTxt8.setText(registrasi.get(0).getImunisasiTT());
+                    String strImunisasi = "Tidak";
+                    if(registrasi.get(0).getImunisasiTT().equals("1")){
+                        strImunisasi = "Ya";
+                    }
+                    viewTxt8.setText(strImunisasi);
 
                     TextView viewTxt9 = (TextView) view.findViewById(R.id.field_cara_salin_akhir);
                     viewTxt9.setText(registrasi.get(0).getCaraSalinAkhir());
@@ -285,7 +253,11 @@ public class PeriksaActivity extends AppCompatActivity {
                     viewTxt12.setText(registrasi.get(0).getHtp());
 
                     TextView viewTxt13 = (TextView) view.findViewById(R.id.field_is_kek);
-                    viewTxt13.setText(registrasi.get(0).getIsKek());
+                    String strKek = "Tidak";
+                    if(registrasi.get(0).getIsKek().equals("1")){
+                        strKek = "Ya";
+                    }
+                    viewTxt13.setText(strKek);
 
                     TextView viewTxt14 = (TextView) view.findViewById(R.id.field_lingkar_lengan_atas);
                     viewTxt14.setText(registrasi.get(0).getLingkarLenganAtas());
@@ -404,8 +376,6 @@ public class PeriksaActivity extends AppCompatActivity {
                 progress.dismiss();
                 if (response.code() == 200) {
                     registrasiAdapter.updateListItems(response.body().getData());
-                }else{
-                    registrasiAdapter.updateListItems(new ArrayList<>());
                 }
             }
 
@@ -414,6 +384,47 @@ public class PeriksaActivity extends AppCompatActivity {
                 progress.dismiss();
             }
         });
+    }
+
+    private void getAdapter(List<Registrasi.RegistrasiList> data){
+        registrasiAdapter = new RegistrasiAdapter(PeriksaActivity.this, data, typeMenu, new RegistrasiAdapter.ClickListener() {
+            @Override
+            public void onClickRekammedis(View v, int position) {
+                Registrasi.RegistrasiList regList = data.get(position);
+                Intent intent = new Intent(PeriksaActivity.this, RekamMedisActivity.class);
+                intent.putExtra("id", regList.getId());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onClickDetail(View v, int position) {
+                Registrasi.RegistrasiList regList = data.get(position);
+                detailDialog(String.valueOf(regList.getId()));
+            }
+
+            @Override
+            public void onClickKonsultasi(View v, int position) {
+                Registrasi.RegistrasiList regList = data.get(position);
+                if(typeMenu == 1){
+                    //Registrasi
+                    Integer isAktif = 1;
+                    if(regList.getIsKonsultasi().equals("1")){
+                        isAktif = 0;
+                    }
+                    isKonsultasi(String.valueOf(regList.getId()), String.valueOf(isAktif));
+                }else if(typeMenu == 2){
+                    //Konsultasi
+                    Intent intent = new Intent(PeriksaActivity.this, KonsultasiActivity.class);
+                    intent.putExtra("id", regList.getId());
+                    startActivity(intent);
+                }
+            }
+        });
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        rvRegistrasi.setLayoutManager(mLayoutManager);
+        rvRegistrasi.setItemAnimator(new DefaultItemAnimator());
+        rvRegistrasi.setAdapter(registrasiAdapter);
     }
 
     private void isKonsultasi(String id, String isAktif){
@@ -493,5 +504,11 @@ public class PeriksaActivity extends AppCompatActivity {
             return super.onKeyDown(keyCode, event);
         }
 
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        reloadList();
     }
 }

@@ -180,8 +180,6 @@ public class RekamMedisActivity extends AppCompatActivity {
                 progress.dismiss();
                 if (response.code() == 200) {
                     rekamMedisAdapter.updateListItems(response.body().getData());
-                }else{
-                    rekamMedisAdapter.updateListItems(new ArrayList<>());
                 }
             }
 
@@ -205,5 +203,11 @@ public class RekamMedisActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        reloadList();
     }
 }

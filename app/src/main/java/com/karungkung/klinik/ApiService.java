@@ -39,6 +39,14 @@ public interface ApiService {
     @FormUrlEncoded
     Call<ResponseBody> login(@FieldMap HashMap<String, String> params);
 
+    @POST("api/v1/user/change")
+    @FormUrlEncoded
+    Call<ResponseBody> changePassword(@FieldMap HashMap<String, String> params);
+
+    @POST("api/v1/user/reset")
+    @FormUrlEncoded
+    Call<ResponseBody> resetPassword(@FieldMap HashMap<String, String> params);
+
     @GET("api/v1/user/get")
     Call<Profil> getProfile();
 

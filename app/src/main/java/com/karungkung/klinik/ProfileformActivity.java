@@ -386,7 +386,7 @@ public class ProfileformActivity extends AppCompatActivity implements Validator.
             File file = new File(value);
             Glide.with(getApplicationContext()).load(file).apply(requestOptions).into(fotoProfile);
         }else{
-            String imgUrl = ApiClient.BASE_URL + getString(R.string.path_assets) + value;
+            String imgUrl = sm.getPref("base_url") + getString(R.string.path_assets) + value;
             Glide.with(getApplicationContext()).load(imgUrl).apply(requestOptions).into(fotoProfile);
         }
     }

@@ -2,6 +2,7 @@ package com.karungkung.klinik.domains;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Registrasi {
@@ -9,7 +10,7 @@ public class Registrasi {
     private String message;
 
     @SerializedName("data")
-    private List<RegistrasiList> data  = null;
+    private List<RegistrasiList> data;
 
     public List<RegistrasiList> getData() {
         return data;

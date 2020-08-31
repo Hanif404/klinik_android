@@ -1,19 +1,28 @@
 package com.karungkung.klinik;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
@@ -24,6 +33,7 @@ import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,6 +49,10 @@ public class RekamMedisFormActivity extends AppCompatActivity implements Validat
     @BindView(R.id.txt_is_kaki_bengkak)
     @NotEmpty
     TextInputLayout isKakiBengkak;
+
+    @BindView(R.id.filled_exposed_dropdown)
+    @NotEmpty
+    AutoCompleteTextView isKakiBengkakDp;
 
     @BindView(R.id.txt_keluhan)
     @NotEmpty
@@ -104,6 +118,9 @@ public class RekamMedisFormActivity extends AppCompatActivity implements Validat
         setContentView(R.layout.activity_rekam_medis_form);
         ButterKnife.bind(this);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         validator = new Validator(this);
         validator.setValidationListener(this);
         validator.registerAdapter(TextInputLayout.class, new TextInputLayoutAdapter());
@@ -115,6 +132,18 @@ public class RekamMedisFormActivity extends AppCompatActivity implements Validat
         }
 
         prepareData();
+        createDropdown();
+    }
+
+    private void createDropdown(){
+        String[] isKekArr = new String[] {"Tidak", "Ya"};
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(
+                        getApplicationContext(),
+                        R.layout.dropdown_menu_popup_item,
+                        isKekArr);
+        isKakiBengkakDp.setAdapter(adapter);
     }
 
     private void prepareData(){
@@ -134,7 +163,12 @@ public class RekamMedisFormActivity extends AppCompatActivity implements Validat
                     if (response.code() == 200) {
                         List<RekamMedis.RekamMedisList> regData = response.body().getData();
                         for (RekamMedis.RekamMedisList rl: regData) {
-                            isKakiBengkak.getEditText().setText(rl.getIsKakiBengkak());
+                            String strKek = "Tidak";
+                            if(rl.getIsKakiBengkak().equals("1")){
+                                strKek = "Ya";
+                            }
+                            isKakiBengkak.getEditText().setText(strKek);
+
                             keluhan.getEditText().setText(rl.getKeluhan());
                             tekananDarah.getEditText().setText(rl.getTekananDarah());
                             beratBadan.getEditText().setText(rl.getBeratBadan());
@@ -149,6 +183,7 @@ public class RekamMedisFormActivity extends AppCompatActivity implements Validat
                             tindakan.getEditText().setText(rl.getTindakan());
                             nasihat.getEditText().setText(rl.getNasihat());
                             jadwalPeriksa.getEditText().setText(rl.getJadwalPeriksa());
+                            createDropdown();
                         }
                     } else {
                         Gson gson = new Gson();
@@ -186,7 +221,11 @@ public class RekamMedisFormActivity extends AppCompatActivity implements Validat
         progress.show();
 
         HashMap<String, String> params = new HashMap<>();
-        params.put("is_kaki_bengkak", isKakiBengkak.getEditText().getText().toString());
+        String strKek = "0";
+        if(isKakiBengkak.getEditText().getText().toString().equals("Ya")){
+            strKek = "1";
+        }
+        params.put("is_kaki_bengkak", strKek);
         params.put("keluhan", keluhan.getEditText().getText().toString());
         params.put("tekanan_darah", tekananDarah.getEditText().getText().toString());
         params.put("berat_badan", beratBadan.getEditText().getText().toString());
@@ -216,7 +255,7 @@ public class RekamMedisFormActivity extends AppCompatActivity implements Validat
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 progress.dismiss();
                 if(response.code() == 200){
-                    dialogModal("Pesan", getString(R.string.message_success));
+                    new Utilities().dialogModal(RekamMedisFormActivity.this, null, "Pesan", getString(R.string.message_success), true);
                 } else {
                     Gson gson = new Gson();
                     TypeAdapter<ResponseDataObj> adapter = gson.getAdapter(ResponseDataObj.class);
@@ -270,13 +309,72 @@ public class RekamMedisFormActivity extends AppCompatActivity implements Validat
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent intent = new Intent(getApplicationContext(), RekamMedisActivity.class);
-                intent.putExtra("id", idRegistrasi);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), RekamMedisActivity.class);
+//                intent.putExtra("id", idRegistrasi);
+//                startActivity(intent);
                 finish();
             }
         });
 
         dialog.show();
+    }
+
+    @OnClick(R.id.btn_jadwal)
+    public void handleJadwalPeriksa(){
+        DialogFragment newFragment = new DatePickerFragment(jadwalPeriksa);
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    public static class DatePickerFragment extends DialogFragment
+            implements DatePickerDialog.OnDateSetListener {
+        private TextInputLayout txtDate;
+
+        public DatePickerFragment(TextInputLayout txtDate){
+            this.txtDate = txtDate;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current date as the default date in the picker
+            final Calendar c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
+
+            // Create a new instance of DatePickerDialog and return it
+            return new DatePickerDialog(getActivity(), this, year, month, day);
+        }
+
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            // Do something with the date chosen by the user
+            String bulan = String.valueOf(month);
+            if(month < 10){
+                bulan = "0"+month;
+            }
+            String date = year+"-"+bulan+"-"+day;
+            txtDate.getEditText().setText(date);
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //Handle the back button
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            //Ask the user if they want to quit
+            finish();
+            return true;
+        }
+        else {
+            return super.onKeyDown(keyCode, event);
+        }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
