@@ -366,6 +366,7 @@ public class RegistrasiFormActivity extends AppCompatActivity implements Validat
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // Do something with the date chosen by the user
+            month = month+1;
             String bulan = String.valueOf(month);
             if(month < 10){
                 bulan = "0"+month;

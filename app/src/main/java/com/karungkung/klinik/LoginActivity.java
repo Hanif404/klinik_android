@@ -113,6 +113,10 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                                 finish();
+                            }else if(BuildConfig.FLAVOR.equals("bidan") && isBidan.equals("1")){
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                                finish();
                             }else{
                                 Toast.makeText(getApplicationContext(), getString(R.string.message_nouser), Toast.LENGTH_SHORT).show();
                             }

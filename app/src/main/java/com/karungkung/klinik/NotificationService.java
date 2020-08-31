@@ -115,7 +115,6 @@ public class NotificationService extends Service{
     }
 
     private void notificationPemeriksaanBuild(RekamMedis.RekamMedisList sn){
-        sm.setPref("jadwal_periksa", sn.getJadwalPeriksa());
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);

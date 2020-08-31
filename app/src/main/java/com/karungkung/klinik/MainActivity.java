@@ -37,6 +37,7 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 import com.karungkung.klinik.domains.Antrian;
 import com.karungkung.klinik.domains.Klinik;
 import com.karungkung.klinik.domains.Profil;
+import com.karungkung.klinik.domains.RekamMedis;
 
 import java.io.File;
 import java.io.IOException;
@@ -105,10 +106,6 @@ public class MainActivity extends AppCompatActivity {
         Intent notif = new Intent(this, NotificationService.class);
         startService(notif);
 
-        if(sm.getPref("jadwal_periksa") != ""){
-            txtInfoContent.setText(sm.getPref("jadwal_periksa"));
-        }
-
         if(BuildConfig.FLAVOR.equals("bidan")){
             txtAntrian.setVisibility(View.GONE);
             btnAntrian.setVisibility(View.GONE);
@@ -174,6 +171,8 @@ public class MainActivity extends AppCompatActivity {
 
                     String imgUrl = sm.getPref("base_url") + getString(R.string.path_assets) + profil.get(0).getFileImage();
                     Glide.with(getApplicationContext()).load(imgUrl).apply(requestOptions).into(fotoProfile);
+
+                    getDataJadwalPemeriksaan();
                 } else {
                     Gson gson = new Gson();
                     TypeAdapter<ResponseDataObj> adapter = gson.getAdapter(ResponseDataObj.class);
@@ -262,6 +261,33 @@ public class MainActivity extends AppCompatActivity {
                 progress.dismiss();
             }
         });
+    }
+
+    private void getDataJadwalPemeriksaan(){
+        ApiService service = ApiClient.getClient(getApplicationContext(), true).create(ApiService.class);
+        Call<RekamMedis> callAdd = service.getLastRekammedis();
+        callAdd.enqueue(new Callback<RekamMedis>() {
+            @Override
+            public void onResponse(Call<RekamMedis> call, Response<RekamMedis> response) {
+                if(response.code() == 200){
+                    List<RekamMedis.RekamMedisList> rmlist = response.body().getData();
+                    txtInfoContent.setText(rmlist.get(0).getJadwalPeriksa());
+                }else{
+                    txtInfoContent.setText("Belum ada Jadwal");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RekamMedis> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        getDataJadwalPemeriksaan();
     }
 
     private void getDataKlinik(){
