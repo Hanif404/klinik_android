@@ -24,6 +24,9 @@ public class Registrasi {
         @SerializedName("id")
         private Integer id;
 
+        @SerializedName("name")
+        private String namaPengguna;
+
         @SerializedName("hamil_ke")
         private String hamilKe;
 
@@ -166,6 +169,10 @@ public class Registrasi {
 
         public String getIsKonsultasi() {
             return isKonsultasi;
+        }
+
+        public String getNamaPengguna() {
+            return namaPengguna;
         }
     }
 }

@@ -191,7 +191,6 @@ public class PeriksaActivity extends AppCompatActivity {
     }
 
     private void loadDataDetail(View view, BottomSheetDialog dialog, String id){
-        Log.i("KLINIK", idUser+"");
         final ProgressDialog progress = new ProgressDialog(PeriksaActivity.this);
         progress.setTitle("Loading");
         progress.setMessage(getString(R.string.message_loading));

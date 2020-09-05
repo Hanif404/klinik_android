@@ -81,11 +81,9 @@ public class RegistrasiAdapter extends RecyclerView.Adapter<RegistrasiAdapter.My
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Registrasi.RegistrasiList dt = dataList.get(position);
-        int i= position+1;
-        holder.title.setText("Registrasi No. "+ i);
-
         if(typeMenu == 2){
             //Konsultasi
+            holder.title.setText(dt.getNamaPengguna());
             holder.btnView.setVisibility(View.GONE);
             holder.btnRekamMedis.setVisibility(View.GONE);
             if(dt.getIsKonsultasi().equals("1")){
@@ -98,6 +96,7 @@ public class RegistrasiAdapter extends RecyclerView.Adapter<RegistrasiAdapter.My
             }
         }else{
             //Registrasi
+            holder.title.setText("Data Reg #"+ dt.getId());
             String message = "tidak aktif";
             if(dt.getIsKonsultasi().equals("1")){
                 message = "aktif";

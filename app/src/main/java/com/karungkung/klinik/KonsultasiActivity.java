@@ -192,9 +192,9 @@ public class KonsultasiActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        prepareList();
-    }
+//    @Override
+//    protected void onPostResume() {
+//        super.onPostResume();
+//        prepareList();
+//    }
 }
